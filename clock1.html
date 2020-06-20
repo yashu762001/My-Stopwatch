@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Clock With Least Count 0.01 Seconds
+        </title>
+    </head>
+
+     <style>
+         * {
+             background-color: lightcyan;
+         }
+          
+         #i5 {
+             text-align: center;
+             color:black;
+             font-weight: bold;
+             background-color: seagreen ;
+         }
+
+         #i1 {
+             transform: translate(360px,50px);
+             width: 200px;
+             font-size: 30px;
+             cursor: pointer;
+             font-weight: bold;
+             background-color: slateblue;
+             border-radius: 25px;
+             
+         }
+
+         #i2 {
+             transform: translate(400px,50px);
+             width: 200px;
+             font-size: 30px;
+             cursor: pointer;
+             font-weight: bold;
+             background-color: tomato;
+             border-radius: 25px;
+
+         }
+
+         #i3 {
+             transform: translate(450px,50px);
+             width: 200px;
+             font-size: 30px;
+             cursor: pointer;
+             font-weight: bold;
+             background-color: turquoise;
+             border-radius: 25px;
+         }
+
+         #i4 {
+             transform: translate(480px,100px);
+             font-size: 40px;
+         }
+
+     </style>
+
+  <body>
+
+   <h1 id = "i5"> THE MORE ACCURATE STOPWATCH</h1>
+   
+
+   
+       <input type = "submit" name = "submit" value  = "Start" id = "i1" onclick = "demo()">
+       <input type = "submit" name = "submit" value = "Stop" id = "i2" onclick="stop()">
+       <input type = "submit" name = "submit" value = "Reset" id = "i3" onclick = "reset()">
+   
+
+   <h1 id = "i4"> </h1>
+
+    <script>
+       var a = 0 
+       a = parseInt(a)
+        document.getElementById('i4').innerText = '0 hrs: 0 min: 0.00 sec'
+
+       function run() {
+           a = a+1
+           document.getElementById('i1').style.visibility = 'hidden'
+          var s = Math.floor(a/100) 
+        
+          var t = a-s*100
+        //   The total 100th part
+          var u = Math.floor(s/3600)
+        //   The total hrs
+          var v = s-u*3600
+        
+          var w = Math.floor(v/60)
+        //   The total minutes
+          var x = v-w*60
+
+        //    The total seconds.
+
+        document.getElementById('i4').innerText = u + ' hrs: ' + w + ' min: ' + x + '.' + t + ' sec '
+
+       }
+
+       function demo() {
+             hello =  setInterval(run,10)
+       }
+
+       function stop() {
+            clearInterval(hello)
+            document.getElementById('i1').style.visibility = 'visible'
+            
+       }
+
+       function reset() {
+        document.getElementById('i4').innerText = '0 hrs: 0 min: 0.00 sec'
+        a=0
+       }
+
+
+    </script>
+
+  </body>  
+</html>
